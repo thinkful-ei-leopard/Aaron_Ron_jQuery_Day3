@@ -1,30 +1,21 @@
+// selector for thumbnails
+// $('.thumbnail img')
 
-$( 'main ').on('click', '.thumbnail img', (event) => {
+// selector for large image
+// $('.hero img')
 
+$(function() {
+  // When the user clicks on a thumbnail:
+  $( 'main' ).on( 'click', '.thumbnail img', (event) => {
     event.preventDefault();
 
     let thumbSrc = $(event.currentTarget).attr('src');
     let thumbAlt = $(event.currentTarget).attr('alt');
 
-    console.log('thumbSrc: ', thumbSrc);
-
     // update the src attribute of large image to match the thumbnail src
     $('.hero img').attr('src', thumbSrc);
 
+    // update the alt attribute to of large image to match thumbnail alt
     $('.hero img').attr('alt', thumbAlt);
-
-    
-    console.log(event.target);
   });
-  
-
-// When user clicks on thumbnail:
-
-// update the src attribute of large image to match the thumbnail src
-
-// update the alt attribute of large image to match the thumbnail alt
-
-// selector for thumbnails
-// $('.thumbnail img')
-
-//selector for large
+});
