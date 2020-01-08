@@ -1,40 +1,9 @@
-// selector for thumbnails
-// $('.thumbnail img')
-
-// selector for large image
-// $('.hero img')
-
-$(function() {
-  // When the user clicks on a thumbnail:
-  $( 'main' ).on( 'click', '.thumbnail img', (event) => {
-    event.preventDefault();
-
-    let thumbSrc = $(event.currentTarget).attr('src');
-    let thumbAlt = $(event.currentTarget).attr('alt');
-
-    // update the src attribute of large image to match the thumbnail src
-    $('.hero img').attr('src', thumbSrc);
-
-    // update the alt attribute to of large image to match thumbnail alt
-    $('.hero img').attr('alt', thumbAlt);
+function catCarousel() {
+  $('.thumbnail').on('click', function(event) {
+    const newCat = $(event.currentTarget).find('img').attr('src');
+    const catAlt = $(event.currentTarget).find('img').attr('alt');
+    $('.hero img').attr('src', newCat).attr('alt', catAlt);
   });
+}
 
-  $( 'main' ).on( 'keydown', '.thumbnail img', (event) => {
-    event.preventDefault();
-    // if (event.key === 'Tab'){
-    //   console.log('working!');
-    // };
-
-    
-    let thumbSrc = $(event.currentTarget).attr('src');
-    let thumbAlt = $(event.currentTarget).attr('alt');
-
-    // update the src attribute of large image to match the thumbnail src
-    $('.hero img').attr('src', thumbSrc);
-
-    // update the alt attribute to of large image to match thumbnail alt
-    $('.hero img').attr('alt', thumbAlt);
-    
-
-  });
-});
+$(catCarousel());
